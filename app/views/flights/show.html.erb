@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>From Airport</th>
+      <th>To Airport</th>
+      <th>Flight Number</th>
+      <th>Plan Name</th>
+      <th>Plane Number</th>
+      <th>Total Seates</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <%= @flight.fromairport %>
+      </td>
+      <td>
+        <%= @flight.toairport %>
+      </td>
+      <td>
+        <%= @flight.flightno %>
+      </td>
+      <td>
+        <%= @flight.planename %>
+      </td>
+      <td>
+        <%= @flight.planno %>
+      </td>
+      <td>
+        <%= @flight.totalseats %>
+      </td>
+      <td>
+        <%= @flight.departure %>
+      </td>
+      <td>
+        <%= @flight.arrival %>
+      </td>
+      <td><%= link_to 'Edit', edit_flight_path(@flight) %> |</td>
+      <td><%= link_to 'Back', flights_path %></td>
+
+
+    </tr>
+  </tbody>
+</table>
