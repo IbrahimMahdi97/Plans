@@ -6,36 +6,17 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
-    
-    # require 'net/http'
-    # require 'json'
-    # params = {
-    #   :access_key => "a3a1c3aeb7b1df423883726a61806479"
-    # }
-    # uri = URI('http://api.aviationstack.com/v1/flights')
-    # uri.query = URI.encode_www_form(params)
-    # json = Net::HTTP.get(uri)
-    # @api_response = JSON.parse(json)
-    # if @api_response.empty?
-    #   format.html { redirect_to @flight, notice: 'No Data' }
-    # else
-    #   @api_output = @api_response
-    # end
-
-    # for flight in api_response['results']
-    #     unless flight['live']['is_ground']
-    #         puts sprintf("%s flight %s from %s (%s) to %s (%s) is in the air.",
-    #             flight['airline']['name'],
-    #             flight['flight']['iata'],
-    #             flight['departure']['airport'],
-    #             flight['departure']['iata'],
-    #             flight['arrival']['airport'],
-    #             flight['arrival']['iata']
-    #         )
-    #     end
-    # end
   end
 
+  def search
+    @flights = Flight.where("fromairport LIKE ?", "%" + params[:q] + "%")
+    # unless @flights
+    #   redirect_to @flight
+    #   # format.html { redirect_to @flight, notice: 'No Available Flights in the givin Date' }
+    #   # format.json { render :show, status: :unprocessable_entity, location: @flight }
+    # end
+    # @flights = flights.all
+  end 
 
 
   # GET /flights/1
@@ -44,15 +25,7 @@ class FlightsController < ApplicationController
     @flight = Flight.find(params[:id])
   end
 
-  # def search
-  #   flights = find_flights(params[:departure])
-  #   unless flights
-  #     redirect_to @flight
-  #     # format.html { redirect_to @flight, notice: 'No Available Flights in the givin Date' }
-  #     # format.json { render :show, status: :unprocessable_entity, location: @flight }
-  #   end
-  #   @flights = flights.all
-  # end 
+  
   
   # GET /flights/new
   def new
