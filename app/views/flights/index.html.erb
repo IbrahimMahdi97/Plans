@@ -1,5 +1,6 @@
 <h1>Flights</h1>
 <p id="notice"><%= notice %></p>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-12 mt-5">
@@ -15,6 +16,11 @@
     </div>
   </div>
 </div>
+<br>
+<div class="flights-chart" style="width:80%; margin: 2em auto">
+  <%= area_chart @flights.group_by_minute(:departure).count, xtitle:"Time", ytitle:"Number of Flights" %>
+</div>
+
 <br>
 <caption>Database Data</caption>
 <table>

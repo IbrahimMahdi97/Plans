@@ -6,6 +6,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    
     # require 'net/http'
     # require 'json'
     # params = {

@@ -67,3 +67,7 @@ gem 'jquery-rails'
 gem 'excon'
 
 gem 'json', '~> 2.5', '>= 2.5.1'
+
+gem "chartkick"
+
+gem 'groupdate'

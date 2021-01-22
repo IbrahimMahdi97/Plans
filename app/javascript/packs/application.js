@@ -9,6 +9,8 @@ require("@rails/activestorage").start();
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+require("chartkick");
+require("chart.js");
 require("channels");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
