@@ -1,57 +1,51 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Flights</h1>
-
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mt-5">
+      <div class="mx-auto mt-5" style="width: 400px">
+        <%= form_with(url: search_path, method: 'get', local: true) do %>
+        <div class="form-group">
+          <%= label_tag :departure, 'Search for a Flight Departure Date'%>
+          <%= datetime_field_tag :departure, nil, class: 'form-control' %>
+        </div>
+        <%= button_tag 'Search', class: 'btn btn-info btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<caption>Database Data</caption>
 <table>
   <thead>
     <tr>
       <th>From Airport</th>
       <th>To Airport</th>
       <th>Flight Number</th>
-      <th>Plan Name</th>
-      <th>Plane Number</th>
-      <th>Total Seates</th>
+      <th>Airlines</th>
       <th>Departure</th>
       <th>Arrival</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  <% @flights.each do |flight| %>
   <tbody>
-    <% @flights.each do |flight| %>
     <tr>
-      <td>
-        <%= flight.fromairport %>
-      </td>
-      <td>
-        <%= flight.toairport %>
-      </td>
-      <td>
-        <%= flight.flightno %>
-      </td>
-      <td>
-        <%= flight.planename %>
-      </td>
-      <td>
-        <%= flight.planno %>
-      </td>
-      <td>
-        <%= flight.totalseats %>
-      </td>
-      <td>
-        <%= flight.departure %>
-      </td>
-      <td>
-        <%= flight.arrival %>
-      </td>
+      <td><%= flight.fromairport %></td>
+      <td><%= flight.toairport %></td>
+      <td><%= flight.flightno %></td>
+      <td><%= flight.planename %></td>
+      <td><%= flight.departure %></td>
+      <td><%= flight.arrival %></td>
       <td><%= link_to 'Show', flight %></td>
       <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
       <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% end %>
   </tbody>
+  <% end %>
 </table>
-
 <br>
+
 
 <%= link_to 'New Flight', new_flight_path %>

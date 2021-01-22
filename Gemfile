@@ -59,3 +59,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry', '~> 0.13.1'
 
 gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
+
+gem 'bootstrap', '~> 4.3.1'
+
+gem 'jquery-rails'
+
+gem 'excon'
+
+gem 'json', '~> 2.5', '>= 2.5.1'
