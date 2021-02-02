@@ -34,6 +34,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails"
+  # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  #     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  #   end
 end
 
 group :development do
@@ -45,12 +49,18 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem "rspec-rails"
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  # gem 'webdrivers'
+  # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  #     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  #   end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -72,3 +82,17 @@ gem 'json', '~> 2.5', '>= 2.5.1'
 gem "chartkick"
 
 gem 'groupdate'
+
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :development, :test do
+end
+
+group :development, :test do
+end
+
+group :development, :test do
+end
